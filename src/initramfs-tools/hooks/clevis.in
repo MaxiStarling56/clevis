@@ -95,4 +95,7 @@ bash_bin=$(find_binary "bash")
 copy_exec "${curl_bin}" || die 2 "Unable to copy ${curl_bin} to initrd image"
 copy_exec "${awk_bin}" || die 2 "Unable to copy ${awk_bin} to initrd image"
 copy_exec "${bash_bin}" || die 2 "Unable to copy ${bash_bin} to initrd image"
-copy_file data /etc/ssl/certs/ca-certificates.crt || die 2 "Unable to copy certificate bundle to initrd image"
+
+## (seems that in my limited tests) this fix does not work  
+##  fix src: https://github.com/latchset/clevis/issues/175#issuecomment-1252631705
+# copy_file data /etc/ssl/certs/ca-certificates.crt || die 2 "Unable to copy certificate bundle to initrd image"
